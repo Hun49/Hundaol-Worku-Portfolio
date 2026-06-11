@@ -51,214 +51,249 @@
           <h1 class="section-title" id="resume-heading">Resume & Experience</h1>
           <p class="section-subtitle" id="resume-sub">A consolidated view of my academic coursework, system engineering roles, and professional download copy.</p>
           
-          <!-- Grand Layout Grid: Experience / Education vs. Document Preview -->
-          <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 mt-10 items-start" id="resume-composite-grid">
+          <!-- Sequential Vertical Stack OF Sections with Spacing -->
+          <div class="flex flex-col gap-16 mt-12" id="resume-sections-container">
             
-            <!-- Left Grid: Interactive Experience timeline and Education section -->
-            <div class="xl:col-span-6 flex flex-col gap-10" id="experience-education-column">
-              
-              <!-- Education Block -->
-              <div class="flex flex-col gap-6" id="edu-card-group">
-                <h2 class="sub-heading text-xl flex items-center gap-2 font-bold mb-1">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-teal-500"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
-                  Education Background
-                </h2>
-                
-                <div class="edu-block" id="edu-composite-block">
-                  <!-- ASTU -->
-                  <div class="edu-grid" id="edu-astu">
-                    <div class="edu-institution-wrap">
-                      <span class="edu-title text-base">ASTU</span>
-                      <span class="edu-years">2022 — 2027</span>
-                    </div>
-                    <div class="edu-details">
-                      <span class="edu-subtitle">Adama Science and Technology University</span>
-                      <p class="text-xs text-slate-400 font-medium">B.Sc. in Software Engineering — 5th Year (Graduating next year)</p>
-                      <ul class="edu-list">
-                        <li class="edu-item">Selected coursework: Operating Systems, Algorithms, Distributed Schemas, Software Specifications, UI/UX Layouts, Human-Computer Interaction</li>
-                        <li class="edu-item">Leader Student Developer at ASTU SE Club (spearheading in-house client applications)</li>
-                      </ul>
-                    </div>
-                  </div>
-                  
-                  <!-- High School -->
-                  <div class="edu-grid" id="edu-preparatory">
-                    <div class="edu-institution-wrap">
-                      <span class="edu-title text-base">Adama High</span>
-                      <span class="edu-years">2018 — 2022</span>
-                    </div>
-                    <div class="edu-details">
-                      <span class="edu-subtitle">Adama High & Preparatory School</span>
-                      <p class="text-xs text-slate-400 font-medium font-semibold">National Preparatory Credentials (Honors)</p>
-                      <ul class="edu-list">
-                        <li class="edu-item">Completed high school curricula with top honors and outstanding engineering-path physics scores</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Experience Timeline Block -->
-              <div class="flex flex-col gap-6" id="exp-timeline-group">
-                <h2 class="sub-heading text-xl flex items-center gap-2 font-bold mb-1">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-teal-500"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                  Professional Experience
-                </h2>
-                
-                <div class="timeline" id="exp-composite-timeline">
-                  <!-- Lead Student Developer -->
-                  <div class="timeline-item" id="exp-stu-dev">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-header">
-                      <h3 class="timeline-title">Lead Student Developer</h3>
-                      <span class="timeline-meta">ASTU SE Club</span>
-                    </div>
-                    <div class="timeline-period">2025 — Present</div>
-                    <div class="timeline-sub">On-Campus Collaborative Open-Source Lead</div>
-                    <div class="timeline-desc">
-                      Providing dynamic architectural design patterns to student peers. Spearheaded clean frontend layouts and customized CSS theme structures for official campus helper systems.
-                    </div>
-                  </div>
-                  
-                  <!-- TechCorp Intern -->
-                  <div class="timeline-item" id="exp-techcorp">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-header">
-                      <h3 class="timeline-title">Software Engineering Intern</h3>
-                      <span class="timeline-meta">TechCorp Innovations</span>
-                    </div>
-                    <div class="timeline-period">July 2025 — Sept 2025</div>
-                    <div class="timeline-sub">Engineering and Routing Optimizer</div>
-                    <div class="timeline-desc">
-                      Optimized backend router efficiency by 22% via smart structural refactoring of database queries. Packaged server assets cleanly in isolated Docker runtime modules for reliable cluster staging.
-                    </div>
-                  </div>
-                  
-                  <!-- Freelance Dev -->
-                  <div class="timeline-item" id="exp-freelance">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-header">
-                      <h3 class="timeline-title">Freelance Software Developer</h3>
-                      <span class="timeline-meta">Independent</span>
-                    </div>
-                    <div class="timeline-period">2024 — Present</div>
-                    <div class="timeline-sub">Bespoke Client Solutions Engineer</div>
-                    <div class="timeline-desc">
-                      Delivered highly responsive web client applications utilizing vanilla web stacks (HTML5, modern CSS, vanilla ES6). Standardized structural modularity to simplify secondary code handoffs and revisions.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            
-            <!-- Right Grid: PDF Resume Viewer Document and Action Buttons -->
-            <div class="xl:col-span-6 flex flex-col gap-6" id="resume-document-column">
-              <h2 class="sub-heading text-xl flex items-center gap-2 font-bold mb-1">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-teal-500"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                Digital Sheet Download
+            <!-- SECTION 1: Educational Background -->
+            <section class="flex flex-col gap-6" id="educational-background-section" style="scroll-margin-top: 100px;">
+              <h2 class="sub-heading text-2xl flex items-center gap-3 font-bold mb-2">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-teal-500"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                Educational Background
               </h2>
               
-              <div class="resume-layout" id="resume-layout-parent">
-                <!-- Action Download Bar -->
-                <div class="resume-download-bar" id="download-bar">
-                  <div class="resume-info-wrap" id="pd-info">
-                    <span class="resume-tagline">Hundaol_Worku_Resume_2026.pdf</span>
-                    <span class="resume-file-meta">A4 Format • PDF Placement • 138 KB</span>
+              <div class="edu-block" id="edu-composite-block">
+                <!-- ASTU -->
+                <div class="edu-grid" id="edu-astu">
+                  <div class="edu-institution-wrap">
+                    <span class="edu-title text-base font-bold text-slate-100">ASTU University</span>
+                    <span class="edu-years text-teal-400 font-semibold mt-1">2021 — Present</span>
                   </div>
-                  <a href="#" class="btn btn-primary" id="pdf-download-action-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
-                    Download PDF
-                  </a>
+                  <div class="edu-details">
+                    <span class="edu-subtitle text-base font-semibold text-slate-100">Adama Science and Technology University</span>
+                    <p class="text-xs text-slate-400 font-medium">B.Sc. in Software Engineering — 5th Year Student (Graduating in 6th Year / 2027)</p>
+                    <ul class="edu-list mt-3">
+                      <li class="edu-item"><strong>Current Status:</strong> Enrolled as a 5th-year Software Engineering student, aiming to complete my graduation program by the 6th year (2027).</li>
+                      <li class="edu-item"><strong>ASTU Role:</strong> Active Lead Student Developer at ASTU Software Engineering Club, managing collaborative projects and web architectures.</li>
+                      <li class="edu-item"><strong>Academic Coursework Placeholder:</strong> Operating Systems, Advanced Compiler Design, Human-Computer Interaction, Database Engineering, and Software Requirements.</li>
+                    </ul>
+                  </div>
                 </div>
                 
-                <!-- High-End Interactive A4 Simulated Sheet Preview -->
-                <div class="resume-viewer-mock" id="viewer-mock">
-                  <div class="resume-preview-doc" id="a4-document">
+                <!-- Grade 11-12 -->
+                <div class="edu-grid" id="edu-grade-11-12">
+                  <div class="edu-institution-wrap">
+                    <span class="edu-title text-base font-bold text-slate-100">Grade 11 – 12</span>
+                    <span class="edu-years text-teal-400 font-semibold mt-1">Completed in 2020</span>
+                  </div>
+                  <div class="edu-details flex flex-col gap-3">
+                    <div>
+                      <span class="edu-subtitle text-base font-semibold text-slate-300">[Prep School Name Placeholder]</span>
+                      <p class="text-xs text-slate-400 font-medium">National Preparatory Credentials</p>
+                      <p class="text-xs text-slate-400 mt-2 leading-relaxed">Completed preparatory curriculum with academic achievements, with deep high school specialization in the solid STEM track (Advanced Mathematics, Analytical Chemistry, and Physics systems).</p>
+                    </div>
                     
-                    <!-- Document Header -->
-                    <header class="resume-header">
-                      <h2 class="resume-name">Hundaol Worku</h2>
-                      <div class="resume-subtitle-text">SOFTWARE DEVELOPER</div>
-                      <div class="resume-contacts-row">
-                        <span>hundaolworku1949@gmail.com</span>
-                        <span>•</span>
-                        <span>Adama, Ethiopia</span>
-                        <span>•</span>
-                        <span>github.com/hundaol</span>
+                    <!-- Associated Credentials list -->
+                    <div class="mt-2 flex flex-col gap-2.5">
+                      <span class="text-xxs font-mono text-teal-400/90 tracking-wider uppercase font-semibold">Associated Credentials</span>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Credential 1 -->
+                        <div class="p-3.5 rounded-lg bg-white/[0.015] border border-white/[0.04] flex flex-col justify-between items-start gap-3">
+                          <div>
+                            <span class="block text-xs font-bold text-slate-200 mb-1">Preparatory Leaving Certificate</span>
+                            <span class="block text-xxs text-slate-400 leading-relaxed">National High School Preparatory certificate representing full curriculum verification.</span>
+                          </div>
+                          <button class="btn btn-secondary btn-view-credential flex justify-center items-center w-full" data-cred="grade-11-12-c1" style="font-size: 0.72rem; padding: 6px 12px; height: auto;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="mr-1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            View Credential
+                          </button>
+                        </div>
+                        <!-- Credential 2 -->
+                        <div class="p-3.5 rounded-lg bg-white/[0.015] border border-white/[0.04] flex flex-col justify-between items-start gap-3">
+                          <div>
+                            <span class="block text-xs font-bold text-slate-200 mb-1">STEM Achievement Transcript</span>
+                            <span class="block text-xxs text-slate-400 leading-relaxed">Detailed subject grading matrix sheet validating analytical STEM metrics with honors.</span>
+                          </div>
+                          <button class="btn btn-secondary btn-view-credential flex justify-center items-center w-full" data-cred="grade-11-12-c2" style="font-size: 0.72rem; padding: 6px 12px; height: auto;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="mr-1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            View Credential
+                          </button>
+                        </div>
                       </div>
-                    </header>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Grade 9-10 -->
+                <div class="edu-grid" id="edu-grade-9-10">
+                  <div class="edu-institution-wrap">
+                    <span class="edu-title text-base font-bold text-slate-100">Grade 9 – 10</span>
+                    <span class="edu-years text-teal-400 font-semibold mt-1">Completed in 2018</span>
+                  </div>
+                  <div class="edu-details flex flex-col gap-3">
+                    <div>
+                      <span class="edu-subtitle text-base font-semibold text-slate-300">[Secondary School Name Placeholder]</span>
+                      <p class="text-xs text-slate-400 font-medium">General Secondary Leaving Certificate</p>
+                      <p class="text-xs text-slate-400 mt-2 leading-relaxed">Achieved honors level performance across introductory computer science studies, logic layouts, geometry, and high-level algebra concepts.</p>
+                    </div>
                     
-                    <!-- Doc Section: Education -->
-                    <div class="resume-grid-block" id="doc-sec-education">
-                      <h3 class="resume-section-title">Education</h3>
-                      <div class="resume-item-wrap">
-                        <div class="resume-item-head">
-                          <span>Adama Science and Technology University (ASTU)</span>
-                          <span>2022 — 2027</span>
+                    <!-- Associated Credentials list -->
+                    <div class="mt-2 flex flex-col gap-2.5">
+                      <span class="text-xxs font-mono text-teal-400/90 tracking-wider uppercase font-semibold">Associated Credentials</span>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Credential 1 -->
+                        <div class="p-3.5 rounded-lg bg-white/[0.015] border border-white/[0.04] flex flex-col justify-between items-start gap-3">
+                          <div>
+                            <span class="block text-xs font-bold text-slate-200 mb-1">General Secondary Leaving Diploma</span>
+                            <span class="block text-xxs text-slate-400 leading-relaxed">Official secondary leaving certificate and graduation assessment sheet.</span>
+                          </div>
+                          <button class="btn btn-secondary btn-view-credential flex justify-center items-center w-full" data-cred="grade-9-10-c1" style="font-size: 0.72rem; padding: 6px 12px; height: auto;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="mr-1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            View Credential
+                          </button>
                         </div>
-                        <div class="resume-item-sub">B.Sc. in Software Engineering (5th Year Student, Graduating next year)</div>
-                        <div class="resume-bullet">Selected Coursework: Operating Systems, Database Schemas, Data Structures, Interactive Layouts, Cryptography, HCI.</div>
+                        <!-- Credential 2 -->
+                        <div class="p-3.5 rounded-lg bg-white/[0.015] border border-white/[0.04] flex flex-col justify-between items-start gap-3">
+                          <div>
+                            <span class="block text-xs font-bold text-slate-200 mb-1">Computer & Physics Honors Award</span>
+                            <span class="block text-xxs text-slate-400 leading-relaxed">Verification of primary technical coursework in logic and programming steps.</span>
+                          </div>
+                          <button class="btn btn-secondary btn-view-credential flex justify-center items-center w-full" data-cred="grade-9-10-c2" style="font-size: 0.72rem; padding: 6px 12px; height: auto;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="mr-1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            View Credential
+                          </button>
+                        </div>
                       </div>
                     </div>
+                  </div>
+                </div>
 
-                    <!-- Doc Section: Experience -->
-                    <div class="resume-grid-block" id="doc-sec-experience">
-                      <h3 class="resume-section-title">Professional Experience</h3>
-                      
-                      <div class="resume-item-wrap">
-                        <div class="resume-item-head">
-                          <span>Lead Student Developer — ASTU Software Engineering Club</span>
-                          <span>2025 — Present</span>
+                <!-- Grade 8 -->
+                <div class="edu-grid" id="edu-grade-8">
+                  <div class="edu-institution-wrap">
+                    <span class="edu-title text-base font-bold text-slate-100">Grade 8</span>
+                    <span class="edu-years text-teal-400 font-semibold mt-1">Completed in 2016</span>
+                  </div>
+                  <div class="edu-details flex flex-col gap-3">
+                    <div>
+                      <span class="edu-subtitle text-base font-semibold text-slate-300">[Primary School Name Placeholder]</span>
+                      <p class="text-xs text-slate-400 font-medium">Primary School Certificate</p>
+                      <p class="text-xs text-slate-400 mt-2 leading-relaxed font-normal">Completed standard primary curriculum with focus on early scientific reasoning and basic information systems.</p>
+                    </div>
+                    
+                    <!-- Associated Credentials list -->
+                    <div class="mt-2 flex flex-col gap-2.5">
+                      <span class="text-xxs font-mono text-teal-400/90 tracking-wider uppercase font-semibold">Associated Credentials</span>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Credential -->
+                        <div class="p-3.5 rounded-lg bg-white/[0.015] border border-white/[0.04] flex flex-col justify-between items-start gap-3">
+                          <div>
+                            <span class="block text-xs font-bold text-slate-200 mb-1">Primary Leaving Certificate</span>
+                            <span class="block text-xxs text-slate-400 leading-relaxed">Official leaving certificate and scholastic verification document elements.</span>
+                          </div>
+                          <button class="btn btn-secondary btn-view-credential flex justify-center items-center w-full" data-cred="grade-8-c1" style="font-size: 0.72rem; padding: 6px 12px; height: auto;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="mr-1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            View Credential
+                          </button>
                         </div>
-                        <div class="resume-item-sub">On-campus collaborative developer</div>
-                        <div class="resume-bullet">Instructed peers, standardizing project styling paradigms and semantic controls.</div>
-                      </div>
-
-                      <div class="resume-item-wrap">
-                        <div class="resume-item-head">
-                          <span>Associate Software Intern — TechCorp Innovations</span>
-                          <span>July 2025 — Sept 2025</span>
-                        </div>
-                        <div class="resume-item-sub font-semibold">Full Stack development intern</div>
-                        <div class="resume-bullet">Refactored routing layers and relational queries, scoring 22% speedups on query roundtrips.</div>
                       </div>
                     </div>
-
-                    <!-- Doc Section: Projects -->
-                    <div class="resume-grid-block" id="doc-sec-projects">
-                      <h3 class="resume-section-title">Technical Projects</h3>
-                      
-                      <div class="resume-item-wrap">
-                        <div class="resume-item-head">
-                          <span>Algonexus Routing Server</span>
-                          <span>2025</span>
-                        </div>
-                        <div class="resume-bullet">Built high-throughput load routers leveraging custom Go systems and database caches.</div>
-                      </div>
-                    </div>
-
-                    <!-- Doc Section: Skills -->
-                    <div class="resume-grid-block" id="doc-sec-skills" style="margin-bottom: 0;">
-                      <h3 class="resume-section-title">Technical Skills</h3>
-                      <div class="resume-skills-block">
-                        <span class="resume-skill-pill">TypeScript</span>
-                        <span class="resume-skill-pill">Go Lang</span>
-                        <span class="resume-skill-pill">Node.js</span>
-                        <span class="resume-skill-pill">Express</span>
-                        <span class="resume-skill-pill">SQL Database</span>
-                        <span class="resume-skill-pill">HTML5 & Modern CSS</span>
-                        <span class="resume-skill-pill">UI/UX Figma</span>
-                        <span class="resume-skill-pill">Git</span>
-                        <span class="resume-skill-pill">Docker Containers</span>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
+            
+            <!-- SECTION 3: Professional Experience -->
+            <section class="flex flex-col gap-6" id="professional-experience-section" style="scroll-margin-top: 100px;">
+              <h2 class="sub-heading text-2xl flex items-center gap-3 font-bold mb-2">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-teal-500"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                Professional Experience
+              </h2>
+              
+              <div class="timeline" id="exp-composite-timeline">
+                <!-- Lead Student Developer -->
+                <div class="timeline-item" id="exp-stu-dev">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <h3 class="timeline-title text-base font-bold text-slate-100">Lead Student Developer</h3>
+                    <span class="timeline-meta text-teal-400 font-semibold text-sm">ASTU SE Club</span>
+                  </div>
+                  <div class="timeline-period text-slate-500 text-xs">2025 — Present</div>
+                  <div class="timeline-sub text-slate-300 font-semibold">On-Campus Collaborative Open-Source Lead</div>
+                  <div class="timeline-desc text-sm text-slate-400 mt-2">
+                    Providing dynamic architectural design patterns to student peers. Spearheaded clean frontend layouts and customized CSS theme structures for official campus helper systems.
+                  </div>
+                </div>
+                
+                <!-- TechCorp Intern -->
+                <div class="timeline-item" id="exp-techcorp">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <h3 class="timeline-title text-base font-bold text-slate-100">Software Engineering Intern</h3>
+                    <span class="timeline-meta text-teal-400 font-semibold text-sm">TechCorp Innovations</span>
+                  </div>
+                  <div class="timeline-period text-slate-500 text-xs">July 2025 — Sept 2025</div>
+                  <div class="timeline-sub text-slate-300 font-semibold">Engineering and Routing Optimizer</div>
+                  <div class="timeline-desc text-sm text-slate-400 mt-2">
+                    Optimized backend router efficiency by 22% via smart structural refactoring of database queries. Packaged server assets cleanly in isolated Docker runtime modules for reliable cluster staging.
+                  </div>
+                </div>
+                
+                <!-- Freelance Dev -->
+                <div class="timeline-item" id="exp-freelance">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-header">
+                    <h3 class="timeline-title text-base font-bold text-slate-100">Freelance Software Developer</h3>
+                    <span class="timeline-meta text-teal-400 font-semibold text-sm">Independent</span>
+                  </div>
+                  <div class="timeline-period text-slate-500 text-xs">2024 — Present</div>
+                  <div class="timeline-sub text-slate-300 font-semibold">Bespoke Client Solutions Engineer</div>
+                  <div class="timeline-desc text-sm text-slate-400 mt-2">
+                    Delivered highly responsive web client applications utilizing vanilla web stacks (HTML5, modern CSS, vanilla ES6). Standardized structural modularity to simplify secondary code handoffs and revisions.
+                  </div>
+                </div>
 
+                <!-- Future placeholder -->
+                <div class="timeline-item opacity-40" id="exp-future-additions" style="border-style: dashed;">
+                  <div class="timeline-dot" style="border-style: dashed; background: transparent; box-shadow: none;"></div>
+                  <div class="timeline-header">
+                    <h3 class="timeline-title text-base font-semibold text-slate-500 italic">Future Engineering Assignment</h3>
+                    <span class="timeline-meta text-slate-600">[Upcoming Role]</span>
+                  </div>
+                  <div class="timeline-period text-slate-600 font-mono text-xs">Future Opportunity</div>
+                  <div class="timeline-desc text-sm text-slate-500 italic mt-2">
+                    Leaving room for upcoming distributed systems roles, project additions, and research assistantships.
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <!-- SECTION 4: Resume Assets -->
+            <section class="flex flex-col gap-6" id="resume-assets-section" style="scroll-margin-top: 100px;">
+              <h2 class="sub-heading text-2xl flex items-center gap-3 font-bold mb-2">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-teal-500"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Resume Assets
+              </h2>
+              
+              <div class="resume-layout" id="resume-layout-parent" style="padding: 28px; background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
+                <p class="text-sm text-slate-300 mb-6 leading-relaxed">
+                  My official professional resume details academic grades, architectural proficiencies, and recent engineering contributions. This document can be printed, previewed inside the web modal container, or downloaded as a certified PDF record.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <!-- Preview Trigger -->
+                  <button class="btn btn-primary" id="btn-preview-resume" style="width: 100%; justify-content: center; height: 46px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Preview Resume
+                  </button>
+                  
+                  <!-- Download Trigger -->
+                  <a href="/assets/resume.pdf" download="Hundaol_Worku_Resume.pdf" class="btn btn-secondary" id="pdf-download-action-btn" style="width: 100%; justify-content: center; height: 46px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                    Download PDF Version
+                  </a>
+                </div>
+              </div>
+            </section>
+            
           </div>
         </section>
       </main>
@@ -270,7 +305,7 @@
           <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
           <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="footer-link">Telegram</a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a href="mailto:hundaol@example.com" class="footer-link">Email</a>
         </div>
       </footer>
 

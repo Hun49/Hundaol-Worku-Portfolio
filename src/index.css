@@ -1369,3 +1369,409 @@ main {
 .footer-link:hover {
   color: var(--text-primary);
 }
+
+/* ==========================================================================
+   INTERACTIVE POPUPS, SKILLS PROGRESS BARS & REFINEMENTS
+   ========================================================================== */
+
+/* Skill progress bar layout */
+.skill-progress-wrap {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.skill-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #14b8a6 100%);
+  border-radius: 99px;
+  width: 0%; /* Dynamic fill via script */
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-progress-value {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Premium Glass Modal Overlay with visible depth separation and strong dark blur */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000; /* Ensure it stays above everything, including the sticky header and sidebar */
+  background: rgba(4, 5, 8, 0.82); /* Dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.modal-backdrop.visible {
+  opacity: 1;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  pointer-events: auto;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 680px;
+  max-height: calc(100vh - 32px); /* Never exceeds viewport height on desktop, tablet, and mobile */
+  background: rgba(14, 16, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal-backdrop.visible .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+.modal-content-scroll {
+  padding: 28px 32px;
+  overflow-y: auto; /* Content area scrolls internally */
+  flex-grow: 1; /* Fills remaining container block */
+  scrollbar-width: thin;
+}
+
+@media (max-width: 640px) {
+  .modal-content-scroll {
+    padding: 20px;
+  }
+}
+
+/* Close action button */
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  z-index: 2010;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+/* Resume preview modal specific styling */
+.modal-resume-container {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  margin-top: 16px;
+}
+
+/* Spacers & section gap controls */
+section.section + section.section {
+  margin-top: 64px;
+}
+
+/* Modal details tags and typography */
+.modal-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.modal-subheading {
+  font-size: 0.85rem;
+  font-family: var(--font-mono, monospace);
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.modal-section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+}
+
+.modal-body-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-tag-pill {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+
+.modal-footer {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Credential container styling */
+.cred-card {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+
+.cred-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(16, 185, 129, 0.15);
+}
+
+/* Animated Hamburger toggle button styling */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;
+  width: 24px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Modern Side Drawer Navigation (Restored to beautiful right-side positioning and premium glass colors) */
+.mobile-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1005; /* Above navbar but below modal-backdrop */
+  background: rgba(4, 5, 8, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.mobile-sidebar-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 16px;
+  right: 16px; /* Floating on the right side */
+  width: clamp(235px, 32vw, 290px); /* Dynamically scales wider on tablets/PCs, sleek on phones */
+  height: calc(100vh - 32px); /* Beautifully shorter page layout proportion */
+  max-height: min(72vh, 640px); /* Proportional to screen height, capped to stay compact yet balanced */
+  min-height: 380px; /* Protect links from compressing on extremely short desktop windows/landscape */
+  z-index: 1006;
+  background: rgba(10, 12, 16, 0.55); /* Cool transparent glassmorphic card base */
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09); /* Soft border enclosing the glass container shape */
+  border-radius: 16px; /* Elegant rounded outline */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65); /* Rich outer dark shadow depth */
+  display: flex;
+  flex-direction: column;
+  transform: translateX(calc(100% + 24px)); /* Elegant offscreen slide out transition state */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-sidebar.active {
+  transform: translateX(0);
+}
+
+.mobile-sidebar-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-sidebar-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition-fast);
+}
+
+.mobile-sidebar-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.mobile-sidebar-body {
+  flex-grow: 1;
+  padding: 24px 20px;
+  overflow-y: auto;
+}
+
+.mobile-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.mobile-sidebar-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  padding: 3px 0;
+  display: inline-block;
+  position: relative;
+}
+
+.mobile-sidebar-link:hover {
+  color: var(--text-primary);
+}
+
+.mobile-sidebar-link.active {
+  color: var(--text-primary);
+}
+
+.mobile-sidebar-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%; /* Only fits the text length of active page label */
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: 1px;
+}
+
+.mobile-sidebar-footer {
+  padding: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-sidebar-socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-sidebar-socials svg {
+  width: 15px;
+  height: 15px;
+}
+
+.sidebar-social-dot {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.85rem;
+  font-weight: 800;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+@media (min-width: 1025px) {
+  .mobile-sidebar, .mobile-sidebar-backdrop {
+    display: none !important;
+  }
+}
+
