@@ -52,10 +52,6 @@
 
 body {
   background-color: var(--bg-primary);
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 85% 85%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.06) 0%, transparent 60%);
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.625;
@@ -1774,4 +1770,133 @@ section.section + section.section {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   CSS VIEW TRANSITIONS (NATIVE CROSS-DOCUMENT MPA ANIMATIONS) 
+   ========================================================================== */
+
+/* Enable native Cross-Document transitions */
+@view-transition {
+  navigation: auto;
+}
+
+/* 1. View Transition Assignments */
+.portfolio-container {
+  view-transition-name: portfolio-frame;
+}
+
+.navbar {
+  view-transition-name: main-navbar;
+}
+
+.footer {
+  view-transition-name: main-footer;
+}
+
+main {
+  view-transition-name: main-content;
+}
+
+.bg-lighting-layer {
+  view-transition-name: bg-lighting;
+}
+
+/* 2. Persistent View Transition Framework Styling */
+::view-transition-group(portfolio-frame),
+::view-transition-group(main-navbar),
+::view-transition-group(main-footer) {
+  animation: none !important;
+}
+
+::view-transition-old(portfolio-frame),
+::view-transition-new(portfolio-frame),
+::view-transition-old(main-navbar),
+::view-transition-new(main-navbar),
+::view-transition-old(main-footer),
+::view-transition-new(main-footer) {
+  animation: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* 3. Main Content Sliding Animations */
+::view-transition-old(main-content) {
+  animation: 0.95s cubic-bezier(0.16, 1, 0.3, 1) both slide-left-out;
+}
+
+::view-transition-new(main-content) {
+  animation: 0.95s cubic-bezier(0.16, 1, 0.3, 1) both slide-left-in;
+}
+
+@keyframes slide-left-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  to {
+    transform: translateX(-60px);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+@keyframes slide-left-in {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* 4. Ambient Background Lighting Layer & Drifting Motion */
+.bg-lighting-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: 
+    radial-gradient(circle at var(--glow-x1, 15%) var(--glow-y1, 15%), rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at var(--glow-x2, 85%) var(--glow-y2, 85%), rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at var(--glow-x3, 50%) var(--glow-y3, 50%), rgba(34, 197, 94, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+::view-transition-old(bg-lighting) {
+  animation: 1.4s cubic-bezier(0.25, 1, 0.5, 1) both bg-glow-fade-out;
+}
+
+::view-transition-new(bg-lighting) {
+  animation: 1.4s cubic-bezier(0.25, 1, 0.5, 1) both bg-glow-fade-in;
+}
+
+@keyframes bg-glow-fade-out {
+  from {
+    transform: scale(1.0) translate(0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  to {
+    transform: scale(1.15) translate(-30px, 20px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+@keyframes bg-glow-fade-in {
+  from {
+    transform: scale(0.85) translate(30px, -20px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    transform: scale(1.0) translate(0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 

@@ -15,6 +15,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // 0. Programmatic Background Lighting Layer Setup
+  // ==========================================
+  let bgLayer = document.querySelector('.bg-lighting-layer') as HTMLElement | null;
+  if (!bgLayer) {
+    bgLayer = document.createElement('div');
+    bgLayer.className = 'bg-lighting-layer';
+    document.body.prepend(bgLayer);
+  }
+
+  // Set highly aesthetic page-specific ambient lighting coordinates to morph during transitions
+  const pageName = currentPath.split('/').pop() || 'index.html';
+  if (pageName.includes('index.html') || pageName === '' || pageName === '/') {
+    document.documentElement.style.setProperty('--glow-x1', '15%');
+    document.documentElement.style.setProperty('--glow-y1', '15%');
+    document.documentElement.style.setProperty('--glow-x2', '85%');
+    document.documentElement.style.setProperty('--glow-y2', '85%');
+    document.documentElement.style.setProperty('--glow-x3', '50%');
+    document.documentElement.style.setProperty('--glow-y3', '50%');
+  } else if (pageName.includes('about.html')) {
+    document.documentElement.style.setProperty('--glow-x1', '75%');
+    document.documentElement.style.setProperty('--glow-y1', '20%');
+    document.documentElement.style.setProperty('--glow-x2', '20%');
+    document.documentElement.style.setProperty('--glow-y2', '80%');
+    document.documentElement.style.setProperty('--glow-x3', '40%');
+    document.documentElement.style.setProperty('--glow-y3', '65%');
+  } else if (pageName.includes('skills.html')) {
+    document.documentElement.style.setProperty('--glow-x1', '25%');
+    document.documentElement.style.setProperty('--glow-y1', '75%');
+    document.documentElement.style.setProperty('--glow-x2', '75%');
+    document.documentElement.style.setProperty('--glow-y2', '25%');
+    document.documentElement.style.setProperty('--glow-x3', '60%');
+    document.documentElement.style.setProperty('--glow-y3', '35%');
+  } else if (pageName.includes('projects.html')) {
+    document.documentElement.style.setProperty('--glow-x1', '80%');
+    document.documentElement.style.setProperty('--glow-y1', '30%');
+    document.documentElement.style.setProperty('--glow-x2', '35%');
+    document.documentElement.style.setProperty('--glow-y2', '70%');
+    document.documentElement.style.setProperty('--glow-x3', '15%');
+    document.documentElement.style.setProperty('--glow-y3', '15%');
+  } else if (pageName.includes('resume.html')) {
+    document.documentElement.style.setProperty('--glow-x1', '30%');
+    document.documentElement.style.setProperty('--glow-y1', '15%');
+    document.documentElement.style.setProperty('--glow-x2', '80%');
+    document.documentElement.style.setProperty('--glow-y2', '55%');
+    document.documentElement.style.setProperty('--glow-x3', '20%');
+    document.documentElement.style.setProperty('--glow-y3', '80%');
+  } else if (pageName.includes('contact.html')) {
+    document.documentElement.style.setProperty('--glow-x1', '50%');
+    document.documentElement.style.setProperty('--glow-y1', '40%');
+    document.documentElement.style.setProperty('--glow-x2', '15%');
+    document.documentElement.style.setProperty('--glow-y2', '85%');
+    document.documentElement.style.setProperty('--glow-x3', '80%');
+    document.documentElement.style.setProperty('--glow-y3', '20%');
+  }
+
+  // ==========================================
   // 1. Programmatic Mobile Sidebar Drawer Setup
   // ==========================================
   const sidebarBackdrop = document.createElement('div');
@@ -251,9 +307,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.animate-on-scroll');
   revealElements.forEach(element => {
     const el = element as HTMLElement;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    revealObserver.observe(el);
+    
+    // Check if the element is already in or overlapping the viewport on initial page load
+    const rect = el.getBoundingClientRect();
+    const isInViewport = rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0;
+    
+    if (isInViewport) {
+      // If it's already in the viewport on page load, let the page's native View Transition
+      // animate it. We do not hide it initially, which avoids double-animation flashes/visual timing conflicts.
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    } else {
+      // For elements below the fold, hide them and observe to trigger a smooth scroll-reveal on scroll
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      revealObserver.observe(el);
+    }
   });
 
   // ==========================================
